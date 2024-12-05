@@ -14,4 +14,8 @@ list2.sort()
 
 lists = [[list1[i], list2[i]] for i in range(len(list1))]
 
-print(sum([abs(pair[0] - pair[1]) for pair in lists]))
+print(f"part 1: {sum([abs(pair[0] - pair[1]) for pair in lists])}")
+
+similarities = [list2.count(element) * element for element in list1]
+
+print(f"part 2: {sum(similarities)}")

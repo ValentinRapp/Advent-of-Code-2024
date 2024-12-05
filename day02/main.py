@@ -6,6 +6,10 @@ with open("input.txt", "r") as f:
 reports = [re.findall(r"\d+", line) for line in file_content]
 reports = [[int(i) for i in report] for report in reports]
 
+# I actually lost the source code for part 1
+
+# part 2
+
 nb_safe_reports = 0
 
 for report in reports:
@@ -37,4 +41,4 @@ for report in reports:
     if upward or downward:
         nb_safe_reports += 1
 
-print(nb_safe_reports)
+print(f"part 2: {nb_safe_reports}")

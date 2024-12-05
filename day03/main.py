@@ -9,9 +9,21 @@ def element_exists_in_list(list, element) -> bool:
 
 with open("input.txt", "r") as f:
     data = f.read()
-    matches = re.finditer("mul\\(\\d+,\\d+\\)", data)
-    dos = re.finditer("do\\(\\)", data)
-    donts = re.finditer("don't\\(\\)", data)
+
+matches = re.finditer("mul\\(\\d+,\\d+\\)", data)
+dos = re.finditer("do\\(\\)", data)
+donts = re.finditer("don't\\(\\)", data)
+
+# part 1
+# I rerwote this part after I lost the source code, this is why it looks so much better than the part 2
+
+pairs = [[int(element) for element in re.findall(r"\d+", match.group())] for match in matches]
+
+print(f"part 1: {sum([pair[0] * pair[1] for pair in pairs])}")
+
+# part 2
+
+matches = re.finditer("mul\\(\\d+,\\d+\\)", data)
 
 parsed_numbers = []
 
@@ -47,4 +59,4 @@ s = 0
 for a, b in parsed_numbers:
     s += a * b
 
-print(s)
+print(f"part 2: {s}")
